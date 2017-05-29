@@ -29,9 +29,9 @@ void tesiCris_Margot_Manager::init()
 										"numFeats 1",
 										"minNumObsFeatValues 9",
 
-										"doe fcccd",
-										"lhdSamples 10",
-										"numOPs 5",
+										"doe fcccdExtra",
+										"lhdSamples 5",
+										"numOPs 3",
 
 										"rsm sparkGenLinRegr2nd" };
 
@@ -158,7 +158,7 @@ void tesiCris_Margot_Manager::updateOPs()
 		margot::sleeping::manager.remove_operating_points(currentOPs);
 		margot::sleeping::manager.add_operating_points(commonOPs);
 
-		margot::sleeping::manager.dump();
+		// margot::sleeping::manager.dump();
 
 		tesiCris_framework->updateOPs();
 	}

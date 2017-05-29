@@ -31,7 +31,7 @@ int main()
 	////////// app test folder
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////
-	system("mkdir -p /home/cris/Documents/tests/sleepApp");
+	system("mkdir -p /home/cris/Documents/tests/sleepApp2params1feature");
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////// app test folder
@@ -61,8 +61,8 @@ int main()
 	std::ofstream errorStory;
 	std::ofstream throughputStory;
 
-	errorStory.open( "/home/cris/Documents/tests/sleepApp/errorStory.txt", std::ofstream::out | std::ofstream::app );
-	throughputStory.open( "/home/cris/Documents/tests/sleepApp/throughputStory.txt", std::ofstream::out | std::ofstream::app );
+	errorStory.open( "/home/cris/Documents/tests/sleepApp2params1feature/errorStory.txt", std::ofstream::out | std::ofstream::app );
+	throughputStory.open( "/home/cris/Documents/tests/sleepApp2params1feature/throughputStory.txt", std::ofstream::out | std::ofstream::app );
 	
 	errorStory << "time(microseconds) avg_error param1 param2 param3" << std::endl;
 	throughputStory << "time(microseconds) avg_throughput param1 param2 param3" << std::endl;
@@ -80,7 +80,7 @@ int main()
 
 	std::gamma_distribution<double> distribution( 1, 0.3 );
 
-	float errorPercentage = 0.1;
+	float errorPercentage = 0.25;
 
 
 
@@ -90,7 +90,7 @@ int main()
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	std::ofstream exec_info_f;
-	exec_info_f.open( "/home/cris/Documents/tests/sleepApp/info.txt", std::ofstream::out | std::ofstream::app );
+	exec_info_f.open( "/home/cris/Documents/tests/sleepApp2params1feature	/info.txt", std::ofstream::out | std::ofstream::app );
 	exec_info_f << "error_percentage: " << errorPercentage * 100 << "%" << "\n\n\n" << std::endl;
 	exec_info_f.close();
 	////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,8 +140,8 @@ int main()
 							( +38.1 * feat1 ) +
 							( +52.96 * sqrt(param2) ) );
 
-		//sleepTime += round( sleepTime * errorPercentage * distribution(generator) );
-		sleepTime += round( sleepTime * errorPercentage * 0.3 );
+		sleepTime += round( sleepTime * errorPercentage * distribution(generator) );
+		// sleepTime += round( sleepTime * errorPercentage * 0.3 );
 
 
 
