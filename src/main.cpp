@@ -64,8 +64,8 @@ int main()
 	errorStory.open( "/home/cris/Documents/tests/sleepApp2params1feature/errorStory.txt", std::ofstream::out | std::ofstream::app );
 	throughputStory.open( "/home/cris/Documents/tests/sleepApp2params1feature/throughputStory.txt", std::ofstream::out | std::ofstream::app );
 	
-	errorStory << "time(microseconds) avg_error param1 param2 param3" << std::endl;
-	throughputStory << "time(microseconds) avg_throughput param1 param2 param3" << std::endl;
+	errorStory << "time(microseconds) avg_error param1 param2 param3_feat1" << std::endl;
+	throughputStory << "time(microseconds) avg_throughput param1 param2 param3_feat1" << std::endl;
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////// metricsStories
@@ -124,7 +124,7 @@ int main()
 		tmm.updateOPs();
 
 		//check if the configuration is different wrt the previous one
-		if (margot::sleeping::update(param1, param2, feat1))
+		if( margot::sleeping::update( feat1, param1, param2 ) )
 		{
 			margot::sleeping::manager.configuration_applied();
 		}
@@ -213,7 +213,8 @@ int main()
 
 
 
-		// the OP is sent to the server_handler
-		tmm.sendResult( { param1, param2 }, { feat1 }, { margot::sleeping::avg_error, margot::sleeping::avg_throughput } );
+		// the order of parameters and features in params_features must be lexicographic
+		// the order of metrics in metrics must be lexicographic
+		tmm.sendResult( { feat1, param1, param2 }, { margot::sleeping::avg_error, margot::sleeping::avg_throughput } );
 	}
 }
