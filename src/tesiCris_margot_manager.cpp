@@ -9,9 +9,10 @@ void tesiCris_Margot_Manager::init()
 {
 	std::string appName = "sleepApp2params1feature";
 
-	int numParams = 2;
-	int numFeatures = 1;
 	int numMetrics = 2;
+
+	// in this case, 100 is a feature value
+	std::vector<int> features_indexes = { 0 };
 
 
 
@@ -22,12 +23,6 @@ void tesiCris_Margot_Manager::init()
 	// the order of parameters and features must be lexicographic
 	// es. parameters: "aaa" and "ccc", features: "bbb" --> aaa = 150, bbb = 360, ccc = 100
 	std::vector<float> defaultConfiguration = { 100, 150, 360 };
-	
-	// in this case, 150 and 360 are parameters values
-	std::vector<int> params_indexes = { 1, 2 };
-	
-	// in this case, 100 is a feature value
-	std::vector<int> features_indexes = { 0 };
 
 	// metrics and parameters must follow a lexicographic order
 	std::vector< std::string > info = { "metric avg_error",
@@ -39,7 +34,7 @@ void tesiCris_Margot_Manager::init()
 										"numFeats 1",
 										"minNumObsFeatValues 3",
 
-										"doe fcccdExtra",
+										"doe fcccd",
 										"lhdSamples 10",
 										"numOPs 1",
 
@@ -83,12 +78,9 @@ void tesiCris_Margot_Manager::init()
 
 	tesiCris_framework = new Framework( appName,
 											
-										numParams,
-										numFeatures,
 										numMetrics,
 
 										defaultConfiguration,
-										params_indexes,
 										features_indexes,
 										
 										info,
