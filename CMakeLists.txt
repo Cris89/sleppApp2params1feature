@@ -43,7 +43,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/margot_heel_if/cmake"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/tesiCris/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/agora/cmake")
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -59,7 +59,7 @@ find_package(HEEL)
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-find_package(CLIENT)
+find_package(AGORALOCALAPPHANDLER)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -67,7 +67,7 @@ find_package(CLIENT)
 
 
 # add the required include directories
-include_directories(${MARGOT_INCLUDES} ${HEEL_INCLUDES} ${TESICRIS_INCLUDES})
+include_directories(${MARGOT_INCLUDES} ${HEEL_INCLUDES} ${AGORA_INCLUDES})
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 ###############################################
@@ -90,10 +90,10 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS 1)
 set( APP_NAME "sleepApp2params1feature")
 
 # Build probability executable
-set(SOURCE_FILES src/main.cpp src/tesiCris_margot_manager.cpp)
+set(SOURCE_FILES src/main.cpp src/agora_margot_manager.cpp)
 
 add_executable(${APP_NAME} ${SOURCE_FILES})
-target_link_libraries(${APP_NAME} ${HEEL_LIBRARIES} ${MARGOT_LIBRARIES} ${TESICRIS_LIBRARIES})
+target_link_libraries(${APP_NAME} ${HEEL_LIBRARIES} ${MARGOT_LIBRARIES} ${AGORA_LIBRARIES})
 
 
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)

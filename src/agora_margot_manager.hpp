@@ -1,17 +1,17 @@
-#ifndef TESICRIS_MARGOTMANAGER_HPP
-#define TESICRIS_MARGOTMANAGER_HPP
+#ifndef AGORA_MARGOTMANAGER_HPP
+#define AGORA_MARGOTMANAGER_HPP
 
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include <margot.hpp>
-#include <tesiCris/framework.hpp>
+#include <agora/framework.hpp>
 
-class tesiCris_Margot_Manager
+class Agora_Margot_Manager
 {
 public:
-	tesiCris_Margot_Manager();
+	Agora_Margot_Manager();
 
 	void init();
 
@@ -24,10 +24,10 @@ public:
 	// features must be in lexicographic order
 	void storeFeatures( std::vector<float> features );
 
-	virtual ~tesiCris_Margot_Manager();
+	virtual ~Agora_Margot_Manager();
 
 private:
-	Framework *tesiCris_framework;
+	Framework *agora_framework;
 };
 
 #endif
